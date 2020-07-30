@@ -1,5 +1,5 @@
 {
-  "name": "temi-test-2",
+  "name": "temi-test",
   "version": "0.1.0",
   "private": true,
   "scripts": {
@@ -9,7 +9,9 @@
     "lint": "vue-cli-service lint"
   },
   "dependencies": {
+    "axios": "^0.19.2",
     "core-js": "^3.6.5",
+    "mockjs": "^1.1.0",
     "vue": "^2.6.11",
     "vue-router": "^3.2.0"
   },

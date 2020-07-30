@@ -1,12 +1,26 @@
-import { shallowMount } from '@vue/test-utils';
-import HelloWorld from '@/components/HelloWorld.vue';
+import { mount } from '@vue/test-utils';
+import ScrollComponent from '@/components/ScrollComponent.vue';
 
-describe('HelloWorld.vue', () => {
-  it('renders props.msg when passed', () => {
-    const msg = 'new message';
-    const wrapper = shallowMount(HelloWorld, {
-      propsData: { msg },
+const getUsers = async () => {
+  const returnArr = [];
+  for (let i = 0; i < 50; i += 1) {
+    returnArr.push({
+      id: Math.ceil(Math.random() * 100000),
+      name: '测试',
     });
-    expect(wrapper.text()).toMatch(msg);
+  }
+  return returnArr;
+};
+
+describe('ScrollComponent.vue', () => {
+  it('list loaded', async () => {
+    const wrapper = mount(ScrollComponent, {
+      propsData: { scrollReq: getUsers },
+    });
+    const { vm } = wrapper;
+    await vm.$nextTick();
+    const li = wrapper.findAll('li').at(49);
+    expect(li.is('li')).toBe(true);
+    expect(li.text()).toMatch('测试');
   });
 });

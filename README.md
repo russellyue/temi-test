@@ -1,4 +1,4 @@
-# temi-test-2
+# temi-test
 
 ## Project setup
 ```
