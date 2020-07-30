@@ -97,8 +97,6 @@ export default {
     }
   },
   mounted() {
-    // const { clientHeight } = this.$refs['list-container'];
-    // this.$refs['list-container'].scrollTop = clientHeight;
     window.onbeforeunload = () => {
       // save list to localStorage
       this.saveListToLocalStorage();
